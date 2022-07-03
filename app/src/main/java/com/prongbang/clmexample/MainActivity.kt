@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.prongbang.clm.CenterDownLayoutManager
 import com.prongbang.clm.CenterUpLayoutManager
 import com.prongbang.clm.CenterZoomLayoutManager
+import com.prongbang.clm.extension.pagerSnapper
 import com.prongbang.clm.extension.triggerScroll
 import com.prongbang.clmexample.databinding.ActivityMainBinding
 import com.prongbang.clmexample.list.MainAdapter
@@ -47,12 +48,14 @@ class MainActivity : AppCompatActivity() {
                 adapter = mainAdapter
                 layoutManager =
                     CenterUpLayoutManager(context, RecyclerView.HORIZONTAL, false, pixelSpace = 50f)
+                pagerSnapper()
             }
 
             recyclerViewZoom.apply {
                 adapter = mainAdapter
                 layoutManager =
                     CenterZoomLayoutManager(context, RecyclerView.HORIZONTAL, false)
+                pagerSnapper()
             }
 
             recyclerViewDown.apply {
@@ -64,15 +67,8 @@ class MainActivity : AppCompatActivity() {
                         false,
                         pixelSpace = 50f
                     )
+                pagerSnapper()
             }
-
-            // Snap pager
-            val snapHelperUp = PagerSnapHelper()
-            val snapHelperZoom = PagerSnapHelper()
-            val snapHelperDown = PagerSnapHelper()
-            snapHelperUp.attachToRecyclerView(recyclerViewUp)
-            snapHelperZoom.attachToRecyclerView(recyclerViewZoom)
-            snapHelperDown.attachToRecyclerView(recyclerViewDown)
         }
     }
 

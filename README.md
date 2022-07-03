@@ -33,7 +33,7 @@ dependencyResolutionManagement {
 - `app/build.gradle`
 
 ```groovy
-implementation 'com.github.prongbang:custom-layout-manager:1.0.0'
+implementation 'com.github.prongbang:custom-layout-manager:1.0.1'
 ```
 
 ## How to use
@@ -44,17 +44,12 @@ private fun initLoad() {
     for (i in 1..100) {
         cards.add(Card(i))
     }
-
     mainAdapter.submitList(cards)
-    triggerScroll()
-}
 
-private fun triggerScroll() {
-    binding.apply {
-        recyclerViewUp.triggerScroll()
-        recyclerViewZoom.triggerScroll()
-        recyclerViewDown.triggerScroll()
-    }
+    // Trigger scroll
+    recyclerViewUp.triggerScroll()
+    recyclerViewZoom.triggerScroll()
+    recyclerViewDown.triggerScroll()
 }
 
 private fun initView() {
@@ -62,25 +57,20 @@ private fun initView() {
         recyclerViewUp.apply {
             adapter = mainAdapter
             layoutManager = CenterUpLayoutManager(context, RecyclerView.HORIZONTAL, false, pixelSpace = 50f)
+            pagerSnapper()
         }
 
         recyclerViewZoom.apply {
             adapter = mainAdapter
             layoutManager = CenterZoomLayoutManager(context, RecyclerView.HORIZONTAL, false)
+            pagerSnapper()
         }
 
         recyclerViewDown.apply {
             adapter = mainAdapter
             layoutManager = CenterDownLayoutManager(context, RecyclerView.HORIZONTAL, false, pixelSpace = 50f)
+            pagerSnapper()
         }
-
-        // Snap pager
-        val snapHelperUp = PagerSnapHelper()
-        val snapHelperZoom = PagerSnapHelper()
-        val snapHelperDown = PagerSnapHelper()
-        snapHelperUp.attachToRecyclerView(recyclerViewUp)
-        snapHelperZoom.attachToRecyclerView(recyclerViewZoom)
-        snapHelperDown.attachToRecyclerView(recyclerViewDown)
     }
 }
 ```

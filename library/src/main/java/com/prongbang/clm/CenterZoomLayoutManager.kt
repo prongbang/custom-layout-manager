@@ -108,4 +108,13 @@ open class CenterZoomLayoutManager : LinearLayoutManager {
             0
         }
     }
+
+    override fun onLayoutChildren(recycler: RecyclerView.Recycler, state: RecyclerView.State) {
+        super.onLayoutChildren(recycler, state)
+        if (orientation == HORIZONTAL) {
+            scrollHorizontallyBy(0, recycler, state)
+        } else {
+            scrollVerticallyBy(0, recycler, state)
+        }
+    }
 }

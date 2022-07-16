@@ -33,7 +33,7 @@ dependencyResolutionManagement {
 - `app/build.gradle`
 
 ```groovy
-implementation 'com.github.prongbang:custom-layout-manager:1.0.1'
+implementation 'com.github.prongbang:custom-layout-manager:1.0.2'
 ```
 
 ## How to use
@@ -45,11 +45,6 @@ private fun initLoad() {
         cards.add(Card(i))
     }
     mainAdapter.submitList(cards)
-
-    // Trigger scroll
-    recyclerViewUp.triggerScroll()
-    recyclerViewZoom.triggerScroll()
-    recyclerViewDown.triggerScroll()
 }
 
 private fun initView() {

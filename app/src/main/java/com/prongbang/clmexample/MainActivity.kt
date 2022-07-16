@@ -1,14 +1,12 @@
 package com.prongbang.clmexample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.PagerSnapHelper
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.prongbang.clm.CenterDownLayoutManager
 import com.prongbang.clm.CenterUpLayoutManager
 import com.prongbang.clm.CenterZoomLayoutManager
 import com.prongbang.clm.extension.pagerSnapper
-import com.prongbang.clm.extension.triggerScroll
 import com.prongbang.clmexample.databinding.ActivityMainBinding
 import com.prongbang.clmexample.list.MainAdapter
 
@@ -31,15 +29,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         mainAdapter.submitList(cards)
-        triggerScroll()
-    }
-
-    private fun triggerScroll() {
-        binding.apply {
-            recyclerViewUp.triggerScroll()
-            recyclerViewZoom.triggerScroll()
-            recyclerViewDown.triggerScroll()
-        }
     }
 
     private fun initView() {
@@ -61,16 +50,10 @@ class MainActivity : AppCompatActivity() {
             recyclerViewDown.apply {
                 adapter = mainAdapter
                 layoutManager =
-                    CenterDownLayoutManager(
-                        context,
-                        RecyclerView.HORIZONTAL,
-                        false,
-                        pixelSpace = 50f
-                    )
+                    CenterDownLayoutManager(context, RecyclerView.HORIZONTAL, false, pixelSpace = 50f)
                 pagerSnapper()
             }
         }
     }
-
 
 }

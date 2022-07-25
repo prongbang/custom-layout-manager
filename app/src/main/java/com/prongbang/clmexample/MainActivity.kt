@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initLoad() {
         val cards = arrayListOf<Card>()
-        for (i in 1..100) {
+        for (i in 1..5) {
             cards.add(Card(i))
         }
 
@@ -33,6 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.apply {
+
+            // Looper scroll
+            mainAdapter.addOnLooperScrollListener(recyclerViewUp)
+
             recyclerViewUp.apply {
                 adapter = mainAdapter
                 layoutManager =
@@ -50,7 +54,12 @@ class MainActivity : AppCompatActivity() {
             recyclerViewDown.apply {
                 adapter = mainAdapter
                 layoutManager =
-                    CenterDownLayoutManager(context, RecyclerView.HORIZONTAL, false, pixelSpace = 50f)
+                    CenterDownLayoutManager(
+                        context,
+                        RecyclerView.HORIZONTAL,
+                        false,
+                        pixelSpace = 50f
+                    )
                 pagerSnapper()
             }
         }

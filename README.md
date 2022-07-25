@@ -33,7 +33,7 @@ dependencyResolutionManagement {
 - `app/build.gradle`
 
 ```groovy
-implementation 'com.github.prongbang:custom-layout-manager:1.0.2'
+implementation 'com.github.prongbang:custom-layout-manager:1.0.3'
 ```
 
 ## How to use

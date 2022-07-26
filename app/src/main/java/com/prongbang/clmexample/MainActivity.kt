@@ -36,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
             // Looper scroll
             mainAdapter.addOnLooperScrollListener(recyclerViewUp)
+            mainAdapter.addOnLooperScrollListener(recyclerViewZoom)
+            mainAdapter.addOnLooperScrollListener(recyclerViewDown)
 
             recyclerViewUp.apply {
                 adapter = mainAdapter

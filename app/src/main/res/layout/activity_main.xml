@@ -19,7 +19,9 @@
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent"
-		tools:listitem="@layout/item_card" />
+		tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		tools:listitem="@layout/item_card"
+		tools:orientation="horizontal" />
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recycler_view_zoom"
@@ -33,7 +35,9 @@
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/recyclerViewUp"
-		tools:listitem="@layout/item_card" />
+		tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		tools:listitem="@layout/item_card"
+		tools:orientation="horizontal" />
 
 	<androidx.recyclerview.widget.RecyclerView
 		android:id="@+id/recyclerViewDown"
@@ -47,6 +51,8 @@
 		app:layout_constraintHorizontal_bias="0.5"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/recycler_view_zoom"
-		tools:listitem="@layout/item_card" />
+		tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+		tools:listitem="@layout/item_card"
+		tools:orientation="horizontal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
